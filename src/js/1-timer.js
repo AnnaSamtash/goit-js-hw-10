@@ -42,14 +42,15 @@ function startTimer() {
     dataInput.disabled = true;
     let timerId = setInterval(() => {
       let remainTime = userSelectedDate.getTime() - Date.now();
-      let convertTime = convertMs(remainTime);
-      let formattedTime = addLeadingZero(convertTime);
-      displayDays.innerHTML = formattedTime[0];
-      displayHours.innerHTML = formattedTime[1];
-      displayMinutes.innerHTML = formattedTime[2];
-      displaySeconds.innerHTML = formattedTime[3];
       if (remainTime <= 0) {
         clearInterval(timerId);
+      } else {
+        let convertTime = convertMs(remainTime);
+        let formattedTime = addLeadingZero(convertTime);
+        displayDays.innerHTML = formattedTime[0];
+        displayHours.innerHTML = formattedTime[1];
+        displayMinutes.innerHTML = formattedTime[2];
+        displaySeconds.innerHTML = formattedTime[3];
       }
     }, 1000);
   }
