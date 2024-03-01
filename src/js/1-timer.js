@@ -44,6 +44,7 @@ function startTimer() {
       let remainTime = userSelectedDate.getTime() - Date.now();
       if (remainTime <= 0) {
         clearInterval(timerId);
+        dataInput.disabled = false;
       } else {
         let convertTime = convertMs(remainTime);
         let formattedTime = addLeadingZero(convertTime);
